@@ -2,7 +2,11 @@ package com.ltacompany.gonzalo.criminalintent.model;
 
 import android.content.Context;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,12 +21,7 @@ public class CrimeLab {
 
     private CrimeLab(Context context) {
         mCrimes = new ArrayList<>();
-        for (int i = 0; i<100; i++){
-            Crime crime = new Crime();
-            crime.setTitle("Crime #"+i);
-            crime.setmSolved(i%2==0);
-            mCrimes.add(crime);
-        }
+
 
     }
 
@@ -32,6 +31,10 @@ public class CrimeLab {
         }
         
         return sCrimeLab;
+    }
+
+    public void addCrime(Crime c){
+        mCrimes.add(c);
     }
 
     public List<Crime> getmCrimes() {
